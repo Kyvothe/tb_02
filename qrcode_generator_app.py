@@ -9,8 +9,6 @@ def qrcode_generator_app():
 
     st.header('Genewtor')
 
-    generated_qrcodes_path = "generated_qrcodes/"
-
     def generate_qrcode(url):
         qr = qrcode.QRCode(
                             version=1,
@@ -22,10 +20,7 @@ def qrcode_generator_app():
         qr.make(fit=True)
         img = qr.make_image(image_factory=StyledPilImage)
 
-        current_ts = datetime.now().strftime("%d_%m_%Y_%H_%M_%S")
-        qrcode_path = generated_qrcodes_path + "qrcode_" + str(current_ts) + ".png"
-        img.save(qrcode_path)
-        return qrcode_path
+        img.save("qrcode.png")
 
     main_image = Image.open('static/rick.png')
 
@@ -40,7 +35,7 @@ def qrcode_generator_app():
         with col1:
             st.write(' ')
         with col2:
-            image = Image.open(qrcode_path)
+            image = Image.open("qrcode.png")
             st.image(image, caption='Here\'s the Generated QR Code ✅')
         with col3:
             st.write(' ')
