@@ -1,4 +1,3 @@
-segno
+qrcode
 opencv-python-headless
 pillow
-qrcode-artistic
