@@ -2,3 +2,5 @@ segno
 opencv-python-headless
 pillow
 qrcode-artistic
+numpy
+cv2
